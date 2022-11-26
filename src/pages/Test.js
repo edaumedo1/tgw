@@ -5,12 +5,31 @@ const Test = () => {
   const questions = questions100;
 
   const [number, setNumber] = useState(0);
+  const [str, setStr] = useState("");
+
+  console.log(questions100);
+
+  function handleChange(e) {
+    e.preventDefault();
+    // <- input값으로 text 변경 함수
+    setStr(e.target.value);
+    console.log(str);
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
-    const number = Math.floor(Math.random() * 100) + 1;
+    const number =
+      Math.floor(Math.random() * (Object.keys(questions100).length - 1)) + 1;
     setNumber(number);
     console.log(number);
+    console.log(questions[number]);
+  }
+  function handleSubmit1(e) {
+    e.preventDefault();
+    let numMax = Object.keys(questions100).length + 1;
+    console.log(numMax);
+    questions100[numMax] = str;
+    console.log(str);
   }
 
   return (
@@ -32,6 +51,26 @@ const Test = () => {
             <div style={styles.center}>
               <button type="submit" style={{ width: 100, height: 100 }}>
                 질문 선택
+              </button>
+            </div>
+          </div>
+        </form>
+        <form onSubmit={handleSubmit1} style={styles.center}>
+          <div>
+            <div>
+              <div style={styles.center}>
+                <h3>질문추가하기</h3>
+              </div>
+              <div style={styles.center}>
+                <input name="added" onChange={handleChange} value={str}></input>
+              </div>
+            </div>
+            <div style={styles.center}>
+              <button
+                type="submit"
+                style={{ width: 100, height: 100, marginTop: 20 }}
+              >
+                질문 추가
               </button>
             </div>
           </div>
