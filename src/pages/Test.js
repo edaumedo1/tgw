@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import questions100 from "../question.json";
+import addQuestion1 from "../addQuestion.json";
 
 const Test = () => {
   const questions = questions100;
+  const addQuestion = addQuestion1;
 
   const [number, setNumber] = useState(0);
+  const [number1, setNumber1] = useState(0);
   const [str, setStr] = useState("");
 
-  console.log(questions100);
+  // console.log(questions100);
+  console.log(addQuestion1);
 
   function handleChange(e) {
     e.preventDefault();
@@ -24,12 +28,23 @@ const Test = () => {
     console.log(number);
     console.log(questions[number]);
   }
+
+  function handleSubmit2(e) {
+    e.preventDefault();
+    console.log(addQuestion);
+    const number1 =
+      Math.floor(Math.random() * Object.keys(addQuestion).length) + 1;
+    setNumber1(number1);
+    console.log(number1);
+    console.log(addQuestion[number1]);
+  }
+
   function handleSubmit1(e) {
     alert("추가 해줬다(새침)");
     e.preventDefault();
-    let numMax = Object.keys(questions100).length + 1;
+    let numMax = Object.keys(addQuestion).length + 1;
     console.log(numMax);
-    questions100[numMax] = str;
+    addQuestion[numMax] = str;
     console.log(str);
     setStr("");
   }
@@ -48,6 +63,23 @@ const Test = () => {
               </div>
               <div style={styles.center}>
                 <h5>{questions[number]}</h5>
+              </div>
+            </div>
+            <div style={styles.center}>
+              <button type="submit" style={{ width: 100, height: 100 }}>
+                질문 선택
+              </button>
+            </div>
+          </div>
+        </form>
+        <form onSubmit={handleSubmit2} style={styles.center}>
+          <div>
+            <div>
+              <div style={styles.center}>
+                <h3>{number1 !== 0 ? number1 + "번 질문!!!" : ""}</h3>
+              </div>
+              <div style={styles.center}>
+                <h5>{addQuestion[number1]}</h5>
               </div>
             </div>
             <div style={styles.center}>
