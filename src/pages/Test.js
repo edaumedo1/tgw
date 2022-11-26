@@ -25,11 +25,13 @@ const Test = () => {
     console.log(questions[number]);
   }
   function handleSubmit1(e) {
+    alert("추가 해줬다(새침)");
     e.preventDefault();
     let numMax = Object.keys(questions100).length + 1;
     console.log(numMax);
     questions100[numMax] = str;
     console.log(str);
+    setStr("");
   }
 
   return (
