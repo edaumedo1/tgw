@@ -59,7 +59,7 @@ const Test = () => {
           <div>
             <div>
               <div style={styles.center}>
-                <h3>{number !== 0 ? number + "번 질문!!!" : ""}</h3>
+                <h3>{number !== 0 ? number + "번 질문!" : ""}</h3>
               </div>
               <div style={styles.center}>
                 <h5>{questions[number]}</h5>
@@ -76,7 +76,7 @@ const Test = () => {
           <div>
             <div>
               <div style={styles.center}>
-                <h3>{number1 !== 0 ? number1 + "번 질문!!!" : ""}</h3>
+                <h3>{number1 !== 0 ? number1 + "번 질문!" : ""}</h3>
               </div>
               <div style={styles.center}>
                 <h5>{addQuestion[number1]}</h5>
