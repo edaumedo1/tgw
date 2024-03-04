@@ -1,11 +1,9 @@
 import React from "react";
-import Test from "./pages/Test";
+import Router from "./route";
 
-const App = () => {
-  return (
-    <div className="App">
-      <Test></Test>
-    </div>
-  );
-};
+const App = () => (
+  <>
+    <Router />
+  </>
+);
 export default App;
